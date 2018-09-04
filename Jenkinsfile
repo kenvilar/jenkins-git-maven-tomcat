@@ -4,10 +4,10 @@ pipeline {
 		stage ('Initialize') {
 			steps {
 				echo 'Initializing the code file'
-				sh '''
-				echo "PATH = ${PATH}"
-				echo "M2_HOME = ${M2_HOME}"
-				'''
+				//sh '''
+				//echo "PATH = ${PATH}"
+				//echo "M2_HOME = ${M2_HOME}"
+				//'''
 			}
 		}
 		
@@ -17,9 +17,22 @@ pipeline {
 			}
 		}
 		
-		stage ('Deploy') {
+		stage ('Build Servlet Project') {
 			steps {
-				echo 'Deployed an Artifact'
+				sh 'mvn clean package'
+			}
+			
+			post {
+				success {
+					echo 'Now Archiving ....'
+					archiveArtifacts artifacts : '**/*.war'
+				}
+			}
+		}
+		
+		stage ('Deploy Build in Staging Area') {
+			steps {
+				build job : 'Deploy-StagingArea-Piple'
 			}
 		}
 	}
