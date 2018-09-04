@@ -49,6 +49,10 @@ pipeline {
 				success {
 					echo 'Deployment on PRODUCTION is Successful'
 				}
+				
+				failure {
+					echo 'Deployement Failure on PRODUCTION'
+				}
 			}
 		}
 	}
