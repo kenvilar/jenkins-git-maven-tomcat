@@ -9,4 +9,17 @@
 ```
 '/Library/Application Support/Jenkins/Uninstall.command'
 ```
-#### Build Trigger
+#### Build Pipeline
+- Create New Item
+- Select Pipeline template
+- Select Discard old build (optional)
+  - Set Days to keep build to 2
+  - Set Max # of builds to keep to 5
+- In Pipeline tab
+  - Select Pipeline script from SCM
+    - Select Git in SCM
+    - Repository URL should be https://github.com/kenvilar/jenkins-git-maven-tomcat.git
+    - */master is set for Branch Specifier
+    - Repository browser: Auto
+    - Script Path: Jenkinsfile
+  
