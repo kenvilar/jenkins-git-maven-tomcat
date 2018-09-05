@@ -13,7 +13,7 @@ pipeline {
 		
 		stage ('Build') {
 			steps {
-				echo 'Ken Vilar Project'
+				echo 'Ken Vilar Project for MRA'
 			}
 		}
 		
