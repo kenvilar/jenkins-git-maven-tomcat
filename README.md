@@ -31,4 +31,40 @@
 - In Job Filters section, select the two jobs you've created "Deploy-StagingArea-Pipeline" and "Deploy-Production-Pipeline"
 - Click OK
   
-  
+#### Install jenkins on the ubuntu server
+```
+wget -q -O - http://pkg.jenkins-ci.org/debian/jenkins-ci.org.key | apt-key add -
+echo deb http://pkg.jenkins-ci.org/debian binary/ > /etc/apt/sources.list.d/jenkins.list
+apt-get update
+apt-get install jenkins
+
+#install Java on Cloud(Linux/Unix/Debian) Machine
+sudo apt-get update
+
+#check Java Version
+java -version
+
+#if Output like this
+
+#The program 'java' can be found in the following packages:
+#  * default-jre
+
+#then execute these commands
+sudo apt-get install default-jre
+sudo apt-get install default-jdk
+
+#check if jenkins is running
+ps aux | grep java
+
+#start jenkins
+systemctl start jenkins
+
+#check Status of Jenkins
+systemctl status jenkins
+
+#stop Jenkins
+systemctl stop jenkins
+
+#restart Jenkins
+systemctl restart jenkins
+```
