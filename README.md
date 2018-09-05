@@ -4,11 +4,13 @@
 ### Jenkins via its OS X installer
 - To manually start the daemon: sudo launchctl load /Library/LaunchDaemons/org.jenkins-ci.plist
 - To manually stop the daemon: sudo launchctl unload /Library/LaunchDaemons/org.jenkins-ci.plist
+
 #### Uninstall Jenkins
 - execute uninstall script from terminal
 ```
 '/Library/Application Support/Jenkins/Uninstall.command'
 ```
+
 #### Build Pipeline
 - Create New Item
 - Select Pipeline template
@@ -22,4 +24,11 @@
     - */master is set for Branch Specifier
     - Repository browser: Auto
     - Script Path: Jenkinsfile
+
+#### Build Code Pipeline
+- Create two jobs and named them "Deploy-StagingArea-Pipeline" and "Deploy-Production-Pipeline", respectively
+- Create new tab and choose the list view
+- In Job Filters section, select the two jobs you've created "Deploy-StagingArea-Pipeline" and "Deploy-Production-Pipeline"
+- Click OK
+  
   
