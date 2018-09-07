@@ -68,3 +68,9 @@ systemctl stop jenkins
 #restart Jenkins
 systemctl restart jenkins
 ```
+
+#### Fix permission error
+```
+sudo usermod -a -G docker jenkins
+systemctl restart jenkins
+```
