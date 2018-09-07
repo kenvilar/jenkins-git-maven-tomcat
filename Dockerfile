@@ -1,10 +1,8 @@
-FROM ubuntu:16.04
+FROM tomcat:8.0
 LABEL maintainer="kenvilar@gmail.com"
 
-RUN apt-get -y upgrade && apt-get install -y build-essential
-COPY root/.bashrc /root/.bashrc
+COPY **/*.war /usr/local/tomcat/webapps
 
-
-WORKDIR /root
-
-CMD ["bash"]
+EXPOSE 8080
+ 
+CMD ["catalina.sh", "run"]
