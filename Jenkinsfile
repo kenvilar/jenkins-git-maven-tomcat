@@ -33,10 +33,10 @@ pipeline {
 			
 			steps {
 				/* For MacOS and Linux machine */
-				sh 'docker build . -t kenvilarwebapp:{$env.BUILD_ID}'
+				sh 'docker build . -t kenvilarwebapp:${env.BUILD_ID}'
 				
 				/* For windows machine */
-				//bat 'docker build . -t kenvilarwebapp:{$env.BUILD_ID}'
+				//bat 'docker build . -t kenvilarwebapp:${env.BUILD_ID}'
 			}
 			
 			post {
