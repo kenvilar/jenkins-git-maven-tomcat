@@ -24,11 +24,19 @@ pipeline {
 		
 		stage ('Build Servlet Project') {
 			steps {
-				/* For windows machine */
-				//bat 'mvn clean package'
-				
 				/* For MacOS and Linux machine */
 				sh 'mvn clean package'
+				
+				/* For windows machine */
+				//bat 'mvn clean package'
+			}
+			
+			steps {
+				/* For MacOS and Linux machine */
+				sh 'docker build . -t kenvilarwebapp:{$env.BUILD_ID}'
+				
+				/* For windows machine */
+				bat 'docker build . -t kenvilarwebapp:{$env.BUILD_ID}'
 			}
 			
 			post {
