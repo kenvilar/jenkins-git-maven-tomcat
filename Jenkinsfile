@@ -57,7 +57,7 @@ pipeline {
 			steps {
 				timeout (time: 5, unit: 'DAYS') {
 					input message : 'Approve PRODUCTION Deployment?', 
-					submitter : kenvilar@gmail.com
+					submitter : 'kenvilar@gmail.com'
 				}
 				
 				build job : 'Deploy-Production-Pipeline'
@@ -69,7 +69,7 @@ pipeline {
 				}
 				
 				failure {
-					echo 'Deployement Failure on PRODUCTION'
+					echo 'Deployment Failure on PRODUCTION'
 				}
 			}
 		}
